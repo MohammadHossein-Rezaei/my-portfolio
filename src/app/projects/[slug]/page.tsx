@@ -1,3 +1,4 @@
+// src/app/projects/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { projects } from "@/lib/projects";
@@ -8,16 +9,12 @@ export function generateStaticParams() {
   }));
 }
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
-
-export default async function ProjectPage(props: Props) {
-  const { params } = props;
-  const { slug } = await params;
-
+export default async function ProjectPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params; // ⚠️ حتما صبر برای resolve کردن promise
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) return notFound();
@@ -31,10 +28,8 @@ export default async function ProjectPage(props: Props) {
         height={400}
         className="rounded-xl w-full object-cover mb-8 shadow-md"
       />
-
       <h1 className="text-4xl font-bold text-gray-900 mb-4">{project.title}</h1>
       <p className="text-gray-600 text-lg mb-6">{project.description}</p>
-
       <div className="prose prose-lg text-gray-800 mb-8">
         {project.content
           .split("- ")
@@ -42,7 +37,6 @@ export default async function ProjectPage(props: Props) {
             (line, index) => line.trim() && <p key={index}>• {line.trim()}</p>
           )}
       </div>
-
       <div className="flex gap-4">
         <a
           href={project.link}
