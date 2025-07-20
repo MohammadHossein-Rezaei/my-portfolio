@@ -2,11 +2,11 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { projects } from "@/lib/projects";
 
-type Props = {
+interface PageProps {
   params: {
     slug: string;
   };
-};
+}
 
 export function generateStaticParams() {
   return projects.map((project) => ({
@@ -14,7 +14,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProjectPage({ params }: Props) {
+export default function ProjectPage({ params }: PageProps) {
   const project = projects.find((p) => p.slug === params.slug);
 
   if (!project) return notFound();
