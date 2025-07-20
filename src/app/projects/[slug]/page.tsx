@@ -2,20 +2,23 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { projects } from "@/lib/projects";
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
-
 export function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
   }));
 }
 
-export default function ProjectPage({ params }: PageProps) {
-  const project = projects.find((p) => p.slug === params.slug);
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export default async function ProjectPage(props: Props) {
+  const { params } = props;
+  const { slug } = await params;
+
+  const project = projects.find((p) => p.slug === slug);
 
   if (!project) return notFound();
 
