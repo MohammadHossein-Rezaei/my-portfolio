@@ -1,4 +1,3 @@
-// src/app/projects/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { projects } from "@/lib/projects";
@@ -14,7 +13,7 @@ export default async function ProjectPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params; // ⚠️ حتما صبر برای resolve کردن promise
+  const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) return notFound();
