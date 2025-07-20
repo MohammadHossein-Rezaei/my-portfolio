@@ -12,16 +12,16 @@ export default function AboutPage() {
       <div>
         <h1 className="text-4xl font-bold text-gray-900 mb-4">About Me</h1>
         <p className="text-gray-700 leading-relaxed">
-          I'm a self-taught and passionate front-end developer who has
+          I&apos;m a self-taught and passionate front-end developer who has
           diligently learned skills like JavaScript, TypeScript, HTML, CSS and
           libraries such as React.js. I have experience working with tools like
-          Redux Toolkit, React Router, and Tailwind CSS, and I'm familiar with
-          Responsive Design principles. While I'm still at the beginning of my
-          journey and haven't mastered these technologies completely, my strong
-          enthusiasm and quick learning ability make me ready to expand my
-          knowledge inaprofessional environment. As a detail-oriented and
-          committed individual, I always strive to write clean and efficient
-          code.
+          Redux Toolkit, React Router, and Tailwind CSS, and I&apos;m familiar
+          with Responsive Design principles. While I&apos;m still at the
+          beginning of my journey and havenI&apos;t mastered these technologies
+          completely, my strong enthusiasm and quick learning ability make me
+          ready to expand my knowledge inaprofessional environment. As a
+          detail-oriented and committed individual, I always strive to write
+          clean and efficient code.
         </p>
       </div>
 
